@@ -16,10 +16,11 @@ app.use(express.urlencoded({ extended: true }));
 // MySQL Connection
 // ==============================
 const db = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: '', // لو عندك باسورد حطه هنا
-    database: 'forms_db'
+    host: process.env.MYSQLHOST,
+    user: process.env.MYSQLUSER,
+    password: process.env.MYSQLPASSWORD,
+    database: process.env.MYSQLDATABASE,
+    port: process.env.MYSQLPORT
 });
 
 db.connect((err) => {
